@@ -218,3 +218,147 @@ function doubleAll(numbers) {
 }
 console.log(doubleAll([1, 2, 3])); // Debería mostrar: [ 2, 4, 6 ]
 console.log(doubleAll([]));        // Debería mostrar: []
+//EJERCICIOS EXTRA
+
+// 1. if - else if - else
+console.log("Ejercicio 1: if - else if - else");
+/* Escribe una función llamada 'getShippingCost' que tome el peso de un
+paquete en kilos ('weight') y devuelva el precio del envío:
+- 3 si pesa 1 kg o menos
+- 6 si pesa más de 1 kg y hasta 5 kg
+- 12 si pesa más de 5 kg y hasta 20 kg
+- 'Envío no disponible' si pesa más de 20 kg */
+
+function getShippingCost(weight){
+    if (weight <= 1){
+        return 3;
+    } else if (weight <= 5){
+        return 6;
+    } else if (weight <= 20){
+        return 12;
+    }else{
+        return "Envío no disponible";
+    }
+}
+
+
+console.log(getShippingCost(0.5)); // Debería mostrar: 3
+console.log(getShippingCost(3));   // Debería mostrar: 6
+console.log(getShippingCost(15));  // Debería mostrar: 12
+console.log(getShippingCost(25));  // Debería mostrar: 'Envío no disponible'
+
+// 2. switch
+console.log("\nEjercicio 2: switch");
+/* Escribe una función llamada 'getSeason' que tome un número de mes
+('month', del 1 al 12) y devuelva la estación del año:
+- 'Invierno' para los meses 12, 1 y 2
+- 'Primavera' para los meses 3, 4 y 5
+- 'Verano' para los meses 6, 7 y 8
+- 'Otoño' para los meses 9, 10 y 11
+- 'Mes inválido' para cualquier otro número
+Utiliza un 'switch' y agrupa los 'case' que comparten resultado. */
+
+function getSeason(month){
+    switch(month){
+    case 1:
+    case 2:
+    case 12:
+        return "Invierno";
+    case 3:
+    case 4:
+    case 5:
+        return "Primavera";
+    case 6:
+    case 7:
+    case 8:
+        return "Verano";
+    case 9:
+    case 10:
+    case 11:
+        return "Otoño";
+    default: 
+        return "Mes inválido";
+    }
+}
+
+
+console.log(getSeason(1));  // Debería mostrar: 'Invierno'
+console.log(getSeason(4));  // Debería mostrar: 'Primavera'
+console.log(getSeason(8));  // Debería mostrar: 'Verano'
+console.log(getSeason(10)); // Debería mostrar: 'Otoño'
+console.log(getSeason(15)); // Debería mostrar: 'Mes inválido'
+
+// 3. for
+console.log("\nEjercicio 3: for");
+/* Escribe una función llamada 'calculateFactorial' que tome un número entero
+positivo ('n') y devuelva su factorial: el resultado de multiplicar todos
+los números desde 1 hasta 'n' (incluido).
+Por ejemplo, el factorial de 4 es 1 * 2 * 3 * 4 = 24.
+Utiliza un bucle 'for' y una variable 'let' para acumular el resultado. */
+
+function calculateFactorial(n){
+    let acumular = 1;
+    for (let i = 1; i <= n; i++ ){
+        acumular = acumular * i;
+    }
+    return acumular;
+}
+
+
+console.log(calculateFactorial(4)); // Debería mostrar: 24
+console.log(calculateFactorial(5)); // Debería mostrar: 120
+console.log(calculateFactorial(1)); // Debería mostrar: 1
+
+// 4. for con arrays
+console.log("\nEjercicio 4: for con arrays");
+/* Escribe una función llamada 'countGreaterThan' que tome dos parámetros,
+un array de números ('numbers') y un número ('limit'), y devuelva cuántos
+números del array son MAYORES que 'limit'.
+Recorre el array con un 'for' clásico (con índice) y usa una variable
+'let' como contador. */
+
+function countGreaterThan(numbers, limit) {
+    let contador = 0;                         
+    for (let i = 0; i < numbers.length; i++) { 
+        if (numbers[i] > limit) {             
+            contador++;                       
+        }
+    }
+    return contador;                          
+}
+
+
+console.log(countGreaterThan([3, 8, 12, 5, 20], 7)); // Debería mostrar: 3
+console.log(countGreaterThan([1, 2, 3], 10));        // Debería mostrar: 0
+console.log(countGreaterThan([10, 10, 11], 10));     // Debería mostrar: 1
+
+/* Escribe una función llamada 'countSmallerThan' que tome un array de
+números ('numbers') y un número ('limit'), y devuelva cuántos números
+del array son MENORES que 'limit'. */
+
+function countSmallerThan(numbers, limit){
+    let contador = 0;
+    for (let i = 0; i < numbers.length; i++){
+        if (numbers[i] < limit) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+console.log(countSmallerThan([3, 8, 12, 5, 20], 7)); // Debería mostrar: 2
+console.log(countSmallerThan([1, 2, 3], 2));         // Debería mostrar: 1
+
+// 5. for...of
+console.log("\nEjercicio 5: for...of");
+/* Escribe una función llamada 'countLetter' que tome dos parámetros,
+un texto ('text') y una letra ('letter'), y devuelva cuántas veces
+aparece esa letra en el texto.
+Recorre el texto con un 'for...of' y usa una variable 'let' como contador. */
+
+// Escribe aquí tu función
+
+
+console.log(countLetter("banana", "a"));     // Debería mostrar: 3
+console.log(countLetter("Hola mundo", "o")); // Debería mostrar: 2
+console.log(countLetter("JavaScript", "z")); // Debería mostrar: 0

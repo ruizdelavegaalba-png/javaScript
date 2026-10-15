@@ -149,3 +149,127 @@ function createProduct(name, price, stock) {
 
 console.log(createProduct("Teclado", 25, 3)); // Debería mostrar: { name: 'Teclado', price: 25, stock: 3, available: true }
 console.log(createProduct("Ratón", 15, 0));   // Debería mostrar: { name: 'Ratón', price: 15, stock: 0, available: false }
+
+//EJERCICIOS EXTRA 
+
+// 1. Operadores y plantillas literales
+console.log("Ejercicio 1: Operadores y plantillas literales");
+/* Escribe una función llamada 'calculateAge' que tome dos parámetros,
+'birthYear' (number) y 'currentYear' (number), y devuelva el texto:
+"Tienes <edad> años."
+Calcula la edad restando los dos años y guárdala en una constante 'age'.
+Utiliza una plantilla literal (backticks) para construir el texto. */
+
+function calculateAge(birthYear,  currentYear){
+    const age = currentYear - birthYear;
+    return `Tienes ${age} años.`;
+}
+
+
+console.log(calculateAge(2005, 2026)); // Debería mostrar: 'Tienes 21 años.'
+console.log(calculateAge(2010, 2026)); // Debería mostrar: 'Tienes 16 años.'
+
+// 2. Operadores aritméticos y módulo
+console.log("\nEjercicio 2: Operadores aritméticos y módulo");
+/* Escribe una función llamada 'convertMinutes' que tome un parámetro
+'totalMinutes' (number) y devuelva un objeto con dos propiedades:
+'hours' (horas completas, usando Math.floor) y 'minutes' (los minutos
+que sobran, usando el operador %).
+Pista: una hora tiene 60 minutos. */
+
+function convertMinutes(totalMinutes){
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return {hours:hours, minutes:minutes};
+}
+
+
+console.log(convertMinutes(135)); // Debería mostrar: { hours: 2, minutes: 15 }
+console.log(convertMinutes(60));  // Debería mostrar: { hours: 1, minutes: 0 }
+console.log(convertMinutes(45));  // Debería mostrar: { hours: 0, minutes: 45 }
+
+// 3. Operadores de asignación
+console.log("\nEjercicio 3: Operadores de asignación");
+/* Escribe una función llamada 'playRound' que tome un parámetro 'points'
+(number) y devuelva la puntuación final de una partida. Sigue estos pasos
+dentro de la función, usando SOLO operadores de asignación (+=, *=, -=):
+1. Declara una variable 'let score' que empiece en 10.
+2. Súmale los 'points' recibidos.
+3. Multiplica el resultado por 2 (bonus doble).
+4. Réstale 5 (penalización).
+5. Devuelve 'score'. */
+
+function playRound(points){
+    let score = 10;
+    score += points;
+    score *= 2;
+    score -= 5;
+    return score;
+}
+
+
+console.log(playRound(5));  // Debería mostrar: 25
+console.log(playRound(0));  // Debería mostrar: 15
+console.log(playRound(10)); // Debería mostrar: 35
+
+// 4. Precedencia de operadores
+console.log("\nEjercicio 4: Precedencia de operadores");
+/* Escribe una función llamada 'calculateAverage' que tome tres parámetros,
+'grade1', 'grade2' y 'grade3' (numbers), y devuelva la media de las tres
+notas (sumarlas y dividir entre 3).
+Ojo: piensa en qué orden hace JS las operaciones. Usa paréntesis para que
+el resultado sea correcto. */
+
+function calculateAverage(grade1, grade2, grade3){
+    let media = (grade1 + grade2 + grade3) / 3 ;
+    return media;
+}
+
+
+console.log(calculateAverage(6, 8, 10)); // Debería mostrar: 8
+console.log(calculateAverage(5, 5, 5));  // Debería mostrar: 5
+console.log(calculateAverage(9, 6, 3));  // Debería mostrar: 6
+
+// 5. null, undefined y typeof
+console.log("\nEjercicio 5: null, undefined y typeof");
+/* Escribe una función llamada 'describeValue' que tome un parámetro 'value'
+y devuelva:
+- 'Vacío a propósito' si el valor es null
+- 'Sin valor' si el valor es undefined
+- 'Tipo: <tipo>' en cualquier otro caso, usando el operador typeof
+Usa === para comparar. */
+
+function describeValue(value){
+    if (value === null){
+        return "Vacío a propósito";
+    }else if (value === undefined) {
+        return "Sin valor";
+    }else {
+        return `Tipo: ${typeof value}`;
+    }
+}
+
+
+console.log(describeValue(null));      // Debería mostrar: 'Vacío a propósito'
+console.log(describeValue(undefined)); // Debería mostrar: 'Sin valor'
+console.log(describeValue(42));        // Debería mostrar: 'Tipo: number'
+console.log(describeValue("hola"));    // Debería mostrar: 'Tipo: string'
+
+// 6. Objetos
+console.log("\nEjercicio 6: Objetos");
+/* Escribe una función llamada 'createBook' que tome tres parámetros,
+'title' (string), 'author' (string) y 'pages' (number), y devuelva un
+objeto con esas tres propiedades más una cuarta propiedad 'isLong'
+(boolean) que sea true si el libro tiene más de 300 páginas, y false
+en caso contrario. */
+
+function createBook(title, author, pages){
+    const isLong = pages > 300;
+    return {title, author, pages, isLong};
+}
+
+
+console.log(createBook("El Quijote", "Cervantes", 1200));
+// Debería mostrar: { title: 'El Quijote', author: 'Cervantes', pages: 1200, isLong: true }
+console.log(createBook("El Principito", "Saint-Exupéry", 96));
+// Debería mostrar: { title: 'El Principito', author: 'Saint-Exupéry', pages: 96, isLong: false }
