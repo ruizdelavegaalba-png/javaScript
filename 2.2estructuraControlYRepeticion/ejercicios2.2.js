@@ -356,7 +356,12 @@ un texto ('text') y una letra ('letter'), y devuelva cuántas veces
 aparece esa letra en el texto.
 Recorre el texto con un 'for...of' y usa una variable 'let' como contador. */
 
-// Escribe aquí tu función
+function countLetter(text, letter){
+    let contador = 0;
+    for (const text of letter){
+        
+    }
+}
 
 
 console.log(countLetter("banana", "a"));     // Debería mostrar: 3
