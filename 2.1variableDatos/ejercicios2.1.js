@@ -273,3 +273,5 @@ console.log(createBook("El Quijote", "Cervantes", 1200));
 // Debería mostrar: { title: 'El Quijote', author: 'Cervantes', pages: 1200, isLong: true }
 console.log(createBook("El Principito", "Saint-Exupéry", 96));
 // Debería mostrar: { title: 'El Principito', author: 'Saint-Exupéry', pages: 96, isLong: false }
+
+
